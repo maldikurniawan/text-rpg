@@ -22,7 +22,7 @@ export default function GameScreen({ game, onAction, eventMessage }: GameScreenP
                 <p className="mb-2">Nama: <b>{game.nama}</b> ({game.jurusan})</p>
                 <p className="mb-1">IPK: {game.ipk}</p>
                 <p className="mb-1">Mental: {game.mental}</p>
-                <p className="mb-4">Uang: Rp{game.uang}k</p>
+                <p className="mb-4">Uang: {new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(game.uang)}</p>
 
                 {eventMessage && (
                     <div className="bg-yellow-100 border border-yellow-300 text-yellow-800 p-3 rounded mb-4">

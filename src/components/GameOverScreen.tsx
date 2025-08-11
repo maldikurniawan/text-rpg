@@ -14,7 +14,7 @@ export default function GameOverScreen({ game, onRestart }: GameOverProps) {
                 <h1 className="text-2xl font-bold text-red-500 mb-4">💀 Game Over</h1>
                 <p className="mb-2">IPK: {game.ipk}</p>
                 <p className="mb-2">Mental: {game.mental}</p>
-                <p className="mb-4">Uang: Rp{game.uang}k</p>
+                <p className="mb-4">Uang: {new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(game.uang)}</p>
                 <button
                     onClick={onRestart}
                     className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition"
