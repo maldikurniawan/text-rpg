@@ -35,17 +35,17 @@ export default function GamePage() {
       semester: 1,
       ipk: 3.0,
       mental: 70,
-      uang: 2000,
+      uang: 4000000, // modal awal realistis
       gameOver: false,
     });
   };
 
   const triggerRandomEvent = (stats: GameData) => {
     const events = [
-      { msg: "Dapat beasiswa! (+Rp1000)", effect: (g: GameData) => ({ ...g, uang: g.uang + 1000 }) },
+      { msg: "Dapat beasiswa! (+Rp3.000.000)", effect: (g: GameData) => ({ ...g, uang: g.uang + 3000000 }) },
       { msg: "Dosen killer masuk mengajar! (-0.3 IPK)", effect: (g: GameData) => ({ ...g, ipk: +(g.ipk - 0.3).toFixed(2) }) },
       { msg: "Putus cinta! (-20 Mental)", effect: (g: GameData) => ({ ...g, mental: g.mental - 20 }) },
-      { msg: "Menang lomba! (+15 Mental, +Rp500)", effect: (g: GameData) => ({ ...g, mental: g.mental + 15, uang: g.uang + 500 }) },
+      { msg: "Menang lomba! (+15 Mental, +Rp1.500.000)", effect: (g: GameData) => ({ ...g, mental: g.mental + 15, uang: g.uang + 1500000 }) },
     ];
     if (Math.random() < 0.5) { // 50% chance event terjadi
       const chosen = events[Math.floor(Math.random() * events.length)];
@@ -65,22 +65,22 @@ export default function GamePage() {
       case "belajar":
         ipk = Math.min(4, ipk + +(Math.random() * 0.2 + 0.1).toFixed(2));
         mental -= Math.floor(Math.random() * 11) + 5;
-        uang -= 200;
+        uang -= 500000; // biaya buku, print, jajan
         break;
       case "organisasi":
         ipk -= +(Math.random() * 0.2).toFixed(2);
         mental += Math.floor(Math.random() * 11) + 5;
-        uang -= 300;
+        uang -= 800000; // kontribusi, acara
         break;
       case "kerja":
         ipk -= +(Math.random() * 0.2).toFixed(2);
         mental -= Math.floor(Math.random() * 6) + 5;
-        uang += Math.floor(Math.random() * 501) + 500;
+        uang += Math.floor(Math.random() * 2000001) + 2000000; // gaji part time 2-4 juta
         break;
       case "rebahan":
         ipk -= +(Math.random() * 0.2 + 0.1).toFixed(2);
         mental += Math.floor(Math.random() * 6) + 5;
-        uang -= 100;
+        uang -= 300000; // makan, hiburan ringan
         break;
     }
 

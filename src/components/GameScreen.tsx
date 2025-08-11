@@ -19,7 +19,7 @@ export default function GameScreen({ game, onAction, eventMessage }: GameScreenP
         <div className="flex items-center justify-center min-h-screen bg-gray-50">
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
                 <h1 className="text-xl font-bold mb-4 text-center">📚 Semester {game.semester}</h1>
-                <p className="mb-2">Nama: <b>{game.nama}</b> ({game.jurusan})</p>
+                <p className="mb-2">Nama: <b className="capitalize">{game.nama}</b> ({game.jurusan})</p>
                 <p className="mb-1">IPK: {game.ipk}</p>
                 <p className="mb-1">Mental: {game.mental}</p>
                 <p className="mb-4">Uang: {new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(game.uang)}</p>
